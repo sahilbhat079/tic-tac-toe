@@ -4,6 +4,7 @@ import Log from "./components/Log"
 import { useState } from "react"
 import {WinnnigCommbination} from "./assets/winnigcombinations"
 import Gameover from "./components/Gameover"
+import {getlocal} from "./assets/utilities"
 const PLAYERS ={
   X:'player 1',
   O:'player 2'
@@ -30,7 +31,7 @@ for (const combinations of WinnnigCommbination){
   const thirdsquaresymbol=gameboard[combinations[2].row][combinations[2].col]
 
   if(firstsquaresymbol && firstsquaresymbol==secondsquaresymbol && firstsquaresymbol==thirdsquaresymbol){
-  winner=players[firstsquaresymbol];
+  winner= getlocal(firstsquaresymbol,players[firstsquaresymbol]) || players[firstsquaresymbol];
   }
 }
 
